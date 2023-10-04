@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIMON GAME</title>
+    <link rel="stylesheet" href="./GAME.css" />
+  
+  </head>
+  <body>
+    <nav class="nav">
+      <p>
+        Made With ❤️
+        <a href="https://www.linkedin.com/in/iyogeshwar/">linkedin</a>
+      </p>
+      <h1>SIMON GAME</h1>
+      <h3 id="Score">High Score</h3>
+    </nav>
+
+    <div class="header">
+      <details>
+        <summary>How to play this game</summary>
+        <iframe
+          src="https://www.youtube.com/embed/EWJ5uYwQJGU"
+          frameborder="0"
+        ></iframe>
+      </details>
+      <h2 class="level">Press any key to start or the start button below</h2>
+    </div>
+    <button id="startButton" type="button">Start</button>
+
+    <div class="btn-grp">
+      <div class="line1">
+        <div class="btn blue" type="button" id="blue">1</div>
+        <div class="btn green" type="button" id="green">2</div>
+      </div>
+
+      <span class="container"> </span>
+
+      <div class="line2">
+        <div class="btn red" type="button" id="red">3</div>
+        <div class="btn yellow" type="button" id="yellow">4</div>
+      </div>
+    </div>
+    <footer>
+      <var id="currentYear">made in </var>
+    </footer>
+  </body>
+  <script src="./GAME.js"></script>
+</html>

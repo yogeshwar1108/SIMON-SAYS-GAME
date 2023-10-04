@@ -3,16 +3,27 @@ let userSeq = [];
 let btns = ["blue", "green", "red", "yellow"];
 
 let starter = false;
-let level = 0;
+let level = -1;
+let highScore = 0;
 
 let h2 = document.querySelector("h2");
 document.addEventListener("keypress", function () {
   if (starter == false) {
-    console.log("started");
+    // console.log("started");
     starter = true;
     levelUp();
   }
 });
+const startButton = document.getElementById("startButton");
+
+startButton.addEventListener("click", function () {
+  if (starter==false) {
+    starter = true;
+    levelUp();
+  }
+});
+
+let high_score = document.getElementById("Score");
 
 function levelUp() {
   userSeq = [];
@@ -22,14 +33,16 @@ function levelUp() {
   let randIdx = Math.floor(Math.random() * btns.length);
   let randclr = btns[randIdx];
   let randBtn = document.querySelector(`.${randclr}`);
-  // console.log(randIdx)
-  // console.log(randBtn)
+
+  if (level > highScore) {
+    highScore = level;
+    high_score.textContent = `Your High Score: ${highScore}`;
+  }
 
   gameSeq.push(randclr);
   console.log("game seql", gameSeq);
   gameFlash(randBtn);
 }
-
 
 function gameFlash(btn) {
   btn.classList.add("flash");
@@ -55,11 +68,11 @@ function checkAns(idx) {
   } else {
     h2.innerHTML = `"Game over !!! <b>your SCORE :${level}</b><br/>
        Press any key to start"`;
-    document.querySelector("body").style.backgroundColor="red";
-    setTimeout(function(){
-      document.querySelector("body").style.backgroundColor="white";
-    },150)
-   //  alert("GAME OVER");
+    document.querySelector("body").style.backgroundColor = "red";
+    setTimeout(function () {
+      document.querySelector("body").style.backgroundColor = "white";
+    }, 150);
+    //  alert("GAME OVER");
     reset();
   }
 }
@@ -87,13 +100,13 @@ function reset() {
   starter = false;
 }
 function getCurrentYear() {
-   return new Date().getFullYear();
- }
- // Function to update the element content with the current year
+  return new Date().getFullYear();
+}
+// Function to update the element content with the current year
 function updateCurrentYear() {
-  const currentYearElement = document.getElementById('currentYear');
+  const currentYearElement = document.getElementById("currentYear");
   currentYearElement.textContent = getCurrentYear();
 }
 
 // Call the function once the page has loaded to set the current year
-document.addEventListener('DOMContentLoaded', updateCurrentYear);
+document.addEventListener("DOMContentLoaded", updateCurrentYear);
